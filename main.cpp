@@ -2,6 +2,7 @@
 #include <vector>
 #include <ctime>
 #include <numeric>
+#include <chrono>
 
 
 std::vector<double> generate_data_double(int data_length)
@@ -66,29 +67,36 @@ int main()
 	data_double = generate_data_double(data_length);
 
 	// show 
-	std::cout << "Generated data float: " << std::endl;
-	for(int i=0; i < data_length; i++)
-	{
-		std::cout << data_float[i] << std::endl;
-	}	
+	//std::cout << "Generated data float: " << std::endl;
+	//for(int i=0; i < data_length; i++)
+	//{
+	//	std::cout << data_float[i] << std::endl;
+	//}	
 
-	std::cout << "Generated data double: " << std::endl;
-	for(int i=0; i < data_length; i++)
-	{
-		std::cout << data_double[i] << std::endl;
-	}
+	//std::cout << "Generated data double: " << std::endl;
+	//for(int i=0; i < data_length; i++)
+	//{
+	//	std::cout << data_double[i] << std::endl;
+	//}
 	
 	// window size
 	int window_size = 4;
+	
+	// start time measuring
+	const auto t_start = std::chrono::steady_clock::now();
 
 	// calculate moving average float
 	std::vector<float> moving_average = moving_average_float(data_float, window_size);
+	
+	// calculate time
+	const auto dt = std::chrono::steady_clock::now() - t_start;
+      std::cout << "Time: " << std::chrono::duration_cast<std::chrono::milliseconds>(dt).count() << " ms" << std::endl;
 
-	std::cout << "Float moving average: " << std::endl;
-	for(int i=0; i < data_length; i++)
-	{
-		std::cout << moving_average[i] << std::endl;
-	}
+	//std::cout << "Float moving average: " << std::endl;
+	//for(int i=0; i < data_length; i++)
+	//{
+	//	std::cout << moving_average[i] << std::endl;
+	//}
 
 	return 0;
 }
