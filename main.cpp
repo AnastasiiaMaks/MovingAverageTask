@@ -83,6 +83,13 @@ int main()
 	std::cin >> data_length ;
 	std::cout << "Inter length of window: " << std::endl;
 	std::cin >> window_size;
+	
+	// check input data
+	if(data_length<=0 || window_size<=0)
+	{
+		std::cout << "Wrong input!";
+		return -1;
+	}
 
 	// starting point
 	srand(std::time(NULL));
