@@ -92,19 +92,6 @@ int main()
 	data_float = generate_data_float(data_length);
 	std::vector<double> data_double;
 	data_double = generate_data_double(data_length);
-
-	// show 
-	//std::cout << "Generated data float: " << std::endl;
-	//for(int i=0; i < data_length; i++)
-	//{
-	//	std::cout << data_float[i] << std::endl;
-	//}	
-
-	//std::cout << "Generated data double: " << std::endl;
-	//for(int i=0; i < data_length; i++)
-	//{
-	//	std::cout << data_double[i] << std::endl;
-	//}
 		
 	// start time measuring 1
 	auto t_start = std::chrono::steady_clock::now();
@@ -133,12 +120,6 @@ int main()
 	// calculate perfomance for double
 	double perf_double = data_length/time_double;
       std::cout << "Perfomance for DOUBLE type: " << perf_double*1000000 << " ticks per seconds" << std::endl;	
-
-	//std::cout << "Float moving average: " << std::endl;
-	//for(int i=0; i < data_length; i++)
-	//{
-	//	std::cout << moving_average[i] << std::endl;
-	//}
 
 	return 0;
 }
