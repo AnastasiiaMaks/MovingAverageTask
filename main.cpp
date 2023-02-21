@@ -114,7 +114,11 @@ int main()
 	
 	// calculate time 1
 	auto dt = std::chrono::steady_clock::now() - t_start;
-      std::cout << "Time for FLOAT type: " << std::chrono::duration_cast<std::chrono::microseconds>(dt).count() << " micros" << std::endl;
+	double time_float = std::chrono::duration_cast<std::chrono::microseconds>(dt).count();
+
+	// calculate perfomance for float
+	double perf_float = data_length/time_float;
+      std::cout << "Perfomance for FLOAT type: " << perf_float*1000000 << " ticks per seconds" << std::endl;
 
 	// start time measuring 2
 	t_start = std::chrono::steady_clock::now();
@@ -124,9 +128,11 @@ int main()
 	
 	// calculate time 2
 	dt = std::chrono::steady_clock::now() - t_start;
-      std::cout << "Time for DOUBLE type: " << std::chrono::duration_cast<std::chrono::microseconds>(dt).count() << " micros" << std::endl;
+      double time_double = std::chrono::duration_cast<std::chrono::microseconds>(dt).count();
 
-	
+	// calculate perfomance for double
+	double perf_double = data_length/time_double;
+      std::cout << "Perfomance for DOUBLE type: " << perf_double*1000000 << " ticks per seconds" << std::endl;	
 
 	//std::cout << "Float moving average: " << std::endl;
 	//for(int i=0; i < data_length; i++)
