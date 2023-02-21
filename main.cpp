@@ -63,7 +63,7 @@ std::vector<double> moving_average_double(std::vector<double> &data, int window_
 		// start case 
 		if((i - window_size)<0)
 		{
-			mov_aver.push_back(std::accumulate(data.cbegin(), data.cbegin() + i + 1, 0)/(i+1));
+			mov_aver.push_back(std::accumulate(data.cbegin(), data.cbegin() + i + 1, 0)/(i + 1));
 		} else
 		// main case
 		{
